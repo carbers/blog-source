@@ -78,7 +78,7 @@ public static AsyncOperation UnloadUnusedAssets();
 当资源的使用上超标时，也可以通过简单的调整一些参数来开关这些对内存有较大影响的对象。
 观察iPhone机型内存可以发现内存有较大的跨越，在2G机型可以承载游戏内容的情况下，1G机型承载不了这么多的内容。通过对资源内容进行分级，来稳定1G机型的内存使用，避免闪退。
 |机型|内存|
-|--|--|
+|:--|:--:|
 |iPhone 5 – 6P|1 GB LPDDR2/LPDDR3 DRAM|
 |iPhone 6S – 7|2 GB LPDDR4 DRAM|
 |iPhone 7P|3 GB LPDDR4 DRAM|

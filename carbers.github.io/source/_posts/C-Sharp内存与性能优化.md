@@ -154,7 +154,7 @@ for (int i = 0; i < 100 * 1024; ++i)
 测试结果
 
 |Method|Time(ms) 100k compares|
-|--------------------------------|--------|
+|:--------------------------------|--------:|
 |String.StartsWith,default culture| 360ms|
 |String.EndsWith,default culture| 12465ms|
 |String.StartsWith,Ordinal| 357ms|
@@ -164,7 +164,7 @@ for (int i = 0; i < 100 * 1024; ++i)
 
 字符串比较接口默认行为
 | Func Name| Default interpretation|
-|-----------------|---------------------------------|
+|:-----------------|:---------------------------------:|
 |String.Compare|StringComparison.CurrentCulture|
 |String.CompareTo|StringComparison.CurrentCulture|
 |String.Equals|StringComparison.Ordinal|
@@ -189,12 +189,12 @@ public struct LargeStruct
 // 1024 calls dict. ContainsKey
 ```
 |Struct|GC Alloc|Time ms|
-|-|-|-|
+|:-|-:|-:|
 |SmallStruct|72.0KB|2.50ms|
 |LargeStruct|288.0KB|11.05ms|
 实现了不同接口之后
 |SmallStruct|GC Alloc|Time ms|
-|-|-|-|
+|:-|-:|-:|
 |None|72.0KB|2.50ms|
 |IEquatable<&T>|24.0KB|1.77ms|
 |GetHashCode|48.0KB|2.57ms|
@@ -308,7 +308,7 @@ public int LowerBounder(TKey key) {
 
 最后的数据对比如下。
 |Type|Object Count|Memory Use|Complexity|
-|-|-|-|-|
+|:-|-:|-:|:-:|
 |Class,Dictionary|5006|861.8KB|O(1)|
 |Struct,Dictionary|6|1420.7KB|O(1)|
 |Struct,TableOrderList|1|625KB|O(logn)|
