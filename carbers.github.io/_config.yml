@@ -4,7 +4,7 @@
 
 # Site
 title: Carber's Blog
-subtitle:
+subtitle: 勇气会带来天赋、能力和神奇的机遇
 description: now-is-life
 keywords:
 author: Carber Lee 
@@ -17,14 +17,6 @@ url: http://carbers.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-
-# Head
-menu:
-  Home: /
-  Archives: /archives
-  Github:
-    url: https://github.com/carbers
-    icon: github
 
 # Directory
 source_dir: source
