@@ -164,7 +164,7 @@ for (int i = 0; i < 100 * 1024; ++i)
 
 字符串比较接口默认行为
 | Func Name| Default interpretation|
-|:-----------------|:---------------------------------:|
+|:-|:-:|
 |String.Compare|StringComparison.CurrentCulture|
 |String.CompareTo|StringComparison.CurrentCulture|
 |String.Equals|StringComparison.Ordinal|
