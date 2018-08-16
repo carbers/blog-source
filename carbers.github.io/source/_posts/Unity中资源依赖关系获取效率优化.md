@@ -44,11 +44,12 @@ public static void Test()
 
 这时候第一个优化思路是Cache，通过缓存每次结果下次查询时可以立即返回结果。不过由于资源会修改，依赖文件会发生变化，所以缓存可能会出错。如果不能判断当前缓存是否有效，则只能在确保资源部修改的情况下使用缓存数据。
 
-这里使用**AssetDatabase.GetAssetDependencyHash**来验证缓存是否有效，这个接口返回Asset与Asset依赖的所有资源计算出来的一个Hash值，由于与依赖文件一起计算了Hash，所以当Hash值没变的时候，可以认为这些文件都没有修改。如果所有文件都没有修改，则依赖的文件列表也不会发生变化，即缓存数据有效。
+这里使用**AssetDatabase.GetAssetDependencyHash**来验证缓存是否有效，这个接口返回Asset的一个Hash值（包括文件名以及meta文件），如果Hash值，我们可以认为这个Asset直接依赖的资源文件不变，由于直接依赖是通过Asset文件内部的GUID索引的，所以Hash不变即表示GUID不变，即依赖关系不变。这里缓存Hash值以及这个Asset的直接依赖。通过所有的直接依赖，可以快速的计算出这个Asset的间接依赖。
+
 
 AssetDatabase.GetAssetDependencyHash接口非常高效，这里简单讨论下。
 
-这部分数据在Import Asset的时候计算并缓存，所以可以高效获取。每个Asset都有自己的AssetDependencyHash，Reimport的时候重新计算。每次计算的时候不需要层层递归，只需要遍历直接依赖的资源的Hash值即可，这样可以提升很高的效率。然后Unity有一个Auto Refresh选项，当检测到文件变化的时候回自动刷新，并对有修改的Asset执行Reimport。这里判断文件是否修改的依据是文件最后修改时间是否发生变化。获取目录下所有文件信息由于有操作系统文件系统做了索引是非常高效的。
+这部分数据在Import Asset的时候计算并缓存，所以可以高效获取。每个Asset都有自己的AssetDependencyHash，Reimport的时候重新计算。这里判断文件是否修改的依据是文件最后修改时间是否发生变化。获取目录下所有文件信息由于有操作系统文件系统做了索引是非常高效的。
 
 由于Refresh是一个必要项，这项开销已经花费出去了，所以这里可以直接享受接口的高效率。
 
