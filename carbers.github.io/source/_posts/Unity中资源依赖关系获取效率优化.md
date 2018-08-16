@@ -44,7 +44,7 @@ public static void Test()
 
 这时候第一个优化思路是Cache，通过缓存每次结果下次查询时可以立即返回结果。不过由于资源会修改，依赖文件会发生变化，所以缓存可能会出错。如果不能判断当前缓存是否有效，则只能在确保资源部修改的情况下使用缓存数据。
 
-这里使用**AssetDatabase.GetAssetDependencyHash**来验证缓存是否有效，这个接口返回Asset的一个Hash值（包括文件名以及meta文件），如果Hash值不变，我们可以认为这个Asset直接依赖的资源文件不变，由于直接依赖是通过Asset文件内部的GUID索引的，所以Hash不变即表示GUID不变，即依赖关系不变。这里缓存Hash值以及这个Asset的直接依赖。通过所有的直接依赖，可以快速的计算出这个Asset的间接依赖。
+这里使用**AssetDatabase.GetAssetDependencyHash**来验证缓存是否有效，这个接口返回Asset的一个Hash值（包括文件名以及meta文件），如果Hash值不变，我们可以认为这个Asset直接依赖的资源文件不变，由于直接依赖是通过Asset文件内部的GUID索引的，所以Hash不变即表示GUID不变，即依赖关系不变。这里缓存Hash值以及这个Asset的直接依赖。通过所有的直接依赖，可以快速的计算出这个Asset的全部依赖。
 
 
 AssetDatabase.GetAssetDependencyHash接口非常高效，这里简单讨论下。
