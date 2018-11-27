@@ -12,7 +12,7 @@ menu:
 menu_title: Now-Is-Life
 
 # URL of the Home page image
-index_cover: https://carbers.github.io/img/home-bg.jpg 
+index_cover: /img/home-bg.jpg 
 
 # Default post title
 default_post_title: Untitled
