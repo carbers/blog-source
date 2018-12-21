@@ -18,7 +18,7 @@ rss: default
 # ===========================================
 menu:
   Home: /
-  Archives: /archives/
+  # Archives: /archives/
   Tags: /tags
   Categories: /categories
   # About: /about
@@ -54,13 +54,13 @@ reward:
 # Social links Settings
 # ===========================================
 social:
-  email: your@email.com
+  email: lee.carber@gmail.com
   stack-overflow:
   twitter:
   facebook:
   linkedin:
   google:
-  github: https://github.com/ahonn
+  github: https://github.com/carbers
   weibo:
   zhihu:
   douban:
