@@ -1,5 +1,5 @@
 ---
-title: All tags
-date: 2018-03-27 23:07:23
-type: "categories"
+title: categories
+date: 2018-12-21 17:12:54
+layout: categories
 ---
